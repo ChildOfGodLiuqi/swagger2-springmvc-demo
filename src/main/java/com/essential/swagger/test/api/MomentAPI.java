@@ -1,6 +1,7 @@
 package com.essential.swagger.test.api;
 
 import com.essential.swagger.test.model.APIModel1001;
+import com.essential.swagger.test.model.APIModelFactory;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -27,7 +28,8 @@ public class MomentAPI {
             @ApiParam(value = "rows", required = true, defaultValue = "10")@RequestParam("rows")int rows,
             HttpServletRequest request, HttpServletResponse response) {
         List<APIModel1001> list = new ArrayList<APIModel1001>();
-
+        APIModel1001 model = (APIModel1001) APIModelFactory.getInstance().buildModel("/api/moment/v1/list");
+        list.add(model);
         return list;
     }
 

@@ -1,6 +1,7 @@
 package com.essential.swagger.test.api;
 
 import com.essential.swagger.test.model.APIModel1002;
+import com.essential.swagger.test.model.APIModelFactory;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,14 +21,15 @@ import java.util.List;
 public class VenueAPI {
 
     @ApiOperation(value="get venue List", notes = "Get venue list with page", response = APIModel1002.class, responseContainer = "List")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/v1/list", method = RequestMethod.GET)
     @ResponseBody
     public List<APIModel1002> getVenueList(
             @ApiParam(value = "pageNum", required = true, defaultValue = "1")@RequestParam("pageNum")int pageNum,
             @ApiParam(value = "rows", required = true, defaultValue = "10")@RequestParam("rows")int rows,
             HttpServletRequest request, HttpServletResponse response) {
         List<APIModel1002> list = new ArrayList<APIModel1002>();
-
+        APIModel1002 model1002 = (APIModel1002) APIModelFactory.getInstance().buildModel("/api/venue/v1/list");
+        list.add(model1002);
         return list;
     }
 

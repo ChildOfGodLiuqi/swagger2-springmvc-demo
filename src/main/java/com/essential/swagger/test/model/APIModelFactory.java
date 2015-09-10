@@ -26,9 +26,8 @@ public class APIModelFactory {
 
     private Map<String, String> apiHolder = new HashMap<String, String>() {
         {
-            put("/api/user/v1.1/{id}", "com.essential.web.model.APIModel1001");
-            put("/api/user/v1.1/{id}/fans", "com.essential.web.model.APIModel1002");
-            put("/api/user/v1.1/{id}/focus", "com.essential.web.model.APIModel1002");
+            put("/api/moment/v1/list", "com.essential.swagger.test.model.APIModel1001");
+            put("/api/venue/v1/list", "com.essential.swagger.test.model.APIModel1002");
         }
     };
 
