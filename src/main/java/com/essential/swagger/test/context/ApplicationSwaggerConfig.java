@@ -61,7 +61,7 @@ public class ApplicationSwaggerConfig {
                 "API Document with swagger",
                 "1.0.0",
                 null,
-                "group@essential.cc",
+                "xxxx@gmail.com",
                 null,
                 null
         );
